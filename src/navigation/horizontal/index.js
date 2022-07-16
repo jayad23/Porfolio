@@ -1,5 +1,4 @@
-import { Mail, Home } from "react-feather"
-
+import { GitHub, Home } from "react-feather"
 export default [
   {
     id: "home",
@@ -8,9 +7,9 @@ export default [
     navLink: "/home"
   },
   {
-    id: "secondPage",
-    title: "Second Page",
-    icon: <Mail size={20} />,
+    id: "github",
+    title: "Git Hub Info",
+    icon: <GitHub size={20} />,
     navLink: "/about"
   }
 ]

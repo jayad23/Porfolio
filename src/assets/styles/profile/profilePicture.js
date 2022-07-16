@@ -4,7 +4,7 @@ const styles = {
         height: "100%"
     },
     cover: {
-        height: "400px"
+        height: "300px"
     },
     followersinfo: {
       marginTop: "5px",
@@ -15,9 +15,20 @@ const styles = {
         height: "300px"
       }
     },
+    "@media screen and (max-width: 767px)": {
+      hidden: {
+        display: "none"
+      }
+    },
     "@media screen and (max-width: 600px)": {
       cover: {
         height: "200px"
+      }
+    },
+    "@media screen and (max-width: 575px)": {
+      followersinfo: {
+        width: "100px",
+        marginLeft: "-3px"
       }
     },
     "@media screen and (max-width: 436px)": {
