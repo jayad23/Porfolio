@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 // ** Custom Components
 import UILoader from '@components/ui-loader'
 import Breadcrumbs from '@components/breadcrumbs'
+import { useTranslate } from '../../hooks/useTranslate'
 
 // ** Reactstrap Imports
 import { Row, Col, Button } from 'reactstrap'
@@ -21,14 +22,11 @@ import ProfileFriendsSuggestions from './ProfileFriendsSuggestions'
 import '@styles/react/pages/page-profile.scss'
 
 const Profile = (props) => {
-  const { data } = props
   const component = useSelector(state => state.componentSlice.component)
-  console.log(component)
+  const { values } = useTranslate()
   return (
     <Fragment>
-      {/* <Breadcrumbs title='Profile' data={[{ title: 'Profile' }]} /> */}
-      {data !== null ? (
-        <div id='user-profile'>
+      <div id='user-profile'>
           <Row>
             <Col sm='12'>
               <ProfileHeader {...props} />
@@ -39,11 +37,17 @@ const Profile = (props) => {
             component === "user" ? <Row>
                 <h1>{component}</h1>
               </Row> : component === "repo" ? <Row>
-              <h1>{component}</h1>
-            </Row> : <Row>
-                <h1>Medellin is a city of Graffiti:</h1>
+                <h1>{component}</h1>
+              </Row> : component === "contribute" ? <Row>
+                <h1>{component}</h1>
+              </Row> : <Row>
+                <h1>{values?.bio}</h1>
               </Row> 
           }
+      
+          {/* <Breadcrumbs title='Profile' data={[{ title: 'Profile' }]} /> */}
+          {/* {data !== null ? ( */}
+            
           {/* <section id='profile-info'>
             this section requires a state called data, and block
             <Row>
@@ -72,7 +76,6 @@ const Profile = (props) => {
             </Row>
           </section> */}
         </div>
-      ) : null}
     </Fragment>
   )
 }

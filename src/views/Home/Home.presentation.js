@@ -1,8 +1,7 @@
-import Profile from "../../Pages/profile/index"
-const Home = (props) => {
+const Home = () => {
   return (
     <div>
-        <Profile {...props}/>
+        <h1>HOME</h1>
     </div>
   )
 }
