@@ -1,9 +1,8 @@
 import { Button } from "./flag.styled"
-import { useSelector } from "react-redux"
-export const Flag = ({ flag, alt, onTranslate, selection }) => {
-    const skin = useSelector(state => state.layout.skin)
+
+export const Flag = ({ flag, alt, onTranslate, selection, skin, bg_light, bg_dark }) => {
     return (
-        <Button skin={skin} onClick={() => onTranslate(selection)}>
+        <Button bg_light={bg_light} bg_dark={bg_dark} skin={skin} onClick={() => onTranslate(selection)}>
             <img src={flag} alt={alt}/>
         </Button>
     )

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { Translate } from "../redux/slices/ENslice/thunks"
-export const useTranslate = () => {
+import { TranslateGitHub, TranslateHome } from "../redux/slices/ENslice/thunks"
+export const useTranslateGh = () => {
     const gitHubData = useSelector(state => state.gitHubSlice.data)
     const dispatch = useDispatch()
     const [savedData, setSavedData] = useState({ 
@@ -9,7 +9,7 @@ export const useTranslate = () => {
         repos: "Repos", 
         friends: "Friends", 
         contributions: "Contributions", 
-        home: "Home",
+        base: "Base",
         profile: "See Profile",
         bio: gitHubData?.bio
     }) 
@@ -17,7 +17,7 @@ export const useTranslate = () => {
         setSavedData({...savedData, bio: gitHubData?.bio})
     }, [gitHubData])
     useEffect(() => {
-        dispatch(Translate(savedData))
+        dispatch(TranslateGitHub(savedData))
     }, [savedData])
     const translate = (selection) => {
         if (selection === "ES") {
@@ -26,26 +26,56 @@ export const useTranslate = () => {
                 repos: "Repos", 
                 friends: "Amigos", 
                 contributions: "Contribución", 
-                home:"Inicio",
+                base:"Inicio",
                 profile: "Ver Perfil",
                 bio:"Soy un Desarrollador Web. Me divierto creando soluciones tecnológicas con React Js. También, soy un dedicato instructor de React; en todo caso, soy un fanático de React"
             }
-            dispatch(Translate(ES))
+            dispatch(TranslateGitHub(ES))
         } else if (selection === "EN") {
             const ES = { 
                 followers: "Followers", 
                 repos: "Repos", 
                 friends: "Friends", 
                 contributions: "Contributions", 
-                home: "Home",
+                base: "Base",
                 profile: "See Profile",
                 bio: gitHubData?.bio
             }
-            dispatch(Translate(ES))
+            dispatch(TranslateGitHub(ES))
         }
     }
 
     return {
         translate
     }
+}
+
+export const useTranslateHome = () => {
+    const dispatch = useDispatch()
+    const [homeValues, setHomeValues] = useState({
+        welcome: "Welcome to my portfolio",
+        welcome_info: "This portfolio was build by using these technologies:"
+    })
+
+    useEffect(() => {
+        dispatch(TranslateHome(homeValues))
+    }, [])
+
+    const translateHome = (selection) => {
+        if (selection === "ES") {
+            const ES = {
+                welcome: "Bienvenidos a mi portafolio",
+                welcome_info: "Este portafolio se construyó usando las siguientes tech:"
+            }
+            dispatch(TranslateHome(ES))
+        } else if (selection === "EN") {
+            const EN = {
+                welcome: "Welcome to my portfolio",
+                welcome_info: "This portfolio was build by using these technologies:"
+            }
+            dispatch(TranslateHome(EN))
+        }
+    }
+
+    return { translateHome }
 }
