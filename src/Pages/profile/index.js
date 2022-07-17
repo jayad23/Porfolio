@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 // ** Custom Components
 import UILoader from '@components/ui-loader'
 import Breadcrumbs from '@components/breadcrumbs'
-import { useTranslate } from '../../hooks/useTranslate'
 
 // ** Reactstrap Imports
 import { Row, Col, Button } from 'reactstrap'
@@ -23,7 +22,7 @@ import '@styles/react/pages/page-profile.scss'
 
 const Profile = (props) => {
   const component = useSelector(state => state.componentSlice.component)
-  const { values } = useTranslate()
+  const { langObj } = props
   return (
     <Fragment>
       <div id='user-profile'>
@@ -41,7 +40,7 @@ const Profile = (props) => {
               </Row> : component === "contribute" ? <Row>
                 <h1>{component}</h1>
               </Row> : <Row>
-                <h1>{values?.bio}</h1>
+                <p>{langObj?.bio}</p>
               </Row> 
           }
       

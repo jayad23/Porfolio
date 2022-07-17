@@ -1,33 +1,56 @@
-// ** React Imports
-import { Link } from "react-router-dom"
-
+import { usePersonalData } from "../../../../hooks/usePersonalData"
+import { useState, useEffect } from "react"
 // ** Custom Components
 import Avatar from "@components/avatar"
-
+import { DropDownComponent } from "./dropDownMenu"
 // ** Third Party Components
 import {
-  User,
-  Mail,
-  CheckSquare,
-  MessageSquare,
-  Settings,
-  CreditCard,
-  HelpCircle,
-  Power
+  Facebook,
+  Twitter,
+  Youtube,
+  Instagram,
+  GitHub,
+  MessageCircle, //WhatsApp
+  Linkedin,
+  Pause
 } from "react-feather"
 
 // ** Reactstrap Imports
 import {
   UncontrolledDropdown,
   DropdownMenu,
-  DropdownToggle,
-  DropdownItem
+  DropdownToggle
 } from "reactstrap"
 
 // ** Default Avatar Image
 import avatar from "@src/assets/images/profile-pic.jpg"
 
 const UserDropdown = () => {
+  const [dropDownList, setDropDownList] = useState([])
+  const { personalInfo } = usePersonalData()
+  const { social } = personalInfo
+  useEffect(() => {
+    const arrOfElements = [
+      {element: Linkedin, name: "LinkedIn"},
+      {element: GitHub, name: "GitHub"},
+      {element: MessageCircle, name: "WhatsApp"},
+      {element: Twitter, name: "Twitter"},
+      {element: Facebook, name: "Facebook"},
+      {element: Instagram, name: "Instagram"},
+      {element: Youtube, name: "YouTube"},
+      {element: Pause, name: "My Playlist"}
+    ]
+    const arr = []
+    if (social?.length > 0) {
+      social.map((item, idx) => arr.push({
+        id: idx,
+        link: item.name,
+        element: arrOfElements[idx]?.element,
+        name: arrOfElements[idx]?.name
+      }))
+    }
+    setDropDownList(arr)
+  }, [social])
   return (
     <UncontrolledDropdown tag="li" className="dropdown-user nav-item">
       <DropdownToggle
@@ -37,8 +60,8 @@ const UserDropdown = () => {
         onClick={(e) => e.preventDefault()}
       >
         <div className="user-nav d-sm-flex d-none">
-          <span className="user-name fw-bold">Jaider Vanegas</span>
-          <span className="user-status">React Developer</span>
+          <span className="user-name fw-bold">{personalInfo?.name}</span>
+          <span className="user-status">{personalInfo?.job}</span>
         </div>
         <Avatar
           img={avatar}
@@ -48,43 +71,17 @@ const UserDropdown = () => {
         />
       </DropdownToggle>
       <DropdownMenu end>
-        <DropdownItem tag={Link} to="/" onClick={(e) => e.preventDefault()}>
-          <User size={14} className="me-75" />
-          <span className="align-middle">Profile</span>
-        </DropdownItem>
-        <DropdownItem tag={Link} to="/" onClick={(e) => e.preventDefault()}>
-          <Mail size={14} className="me-75" />
-          <span className="align-middle">Inbox</span>
-        </DropdownItem>
-        <DropdownItem tag={Link} to="/" onClick={(e) => e.preventDefault()}>
-          <CheckSquare size={14} className="me-75" />
-          <span className="align-middle">Tasks</span>
-        </DropdownItem>
-        <DropdownItem tag={Link} to="/" onClick={(e) => e.preventDefault()}>
-          <MessageSquare size={14} className="me-75" />
-          <span className="align-middle">Chats</span>
-        </DropdownItem>
-        <DropdownItem divider />
-        <DropdownItem
-          tag={Link}
-          to="/pages/"
-          onClick={(e) => e.preventDefault()}
-        >
-          <Settings size={14} className="me-75" />
-          <span className="align-middle">Settings</span>
-        </DropdownItem>
-        <DropdownItem tag={Link} to="/" onClick={(e) => e.preventDefault()}>
-          <CreditCard size={14} className="me-75" />
-          <span className="align-middle">Pricing</span>
-        </DropdownItem>
-        <DropdownItem tag={Link} to="/" onClick={(e) => e.preventDefault()}>
-          <HelpCircle size={14} className="me-75" />
-          <span className="align-middle">FAQ</span>
-        </DropdownItem>
-        <DropdownItem tag={Link} to="/login">
-          <Power size={14} className="me-75" />
-          <span className="align-middle">Logout</span>
-        </DropdownItem>
+        {
+          dropDownList?.length > 0 &&
+          dropDownList.map(list => (
+            <DropDownComponent 
+              key={list.id}
+              Element={list.element}
+              name={list.name}
+              link={list.link}
+            />) 
+          )
+        }
       </DropdownMenu>
     </UncontrolledDropdown>
   )
