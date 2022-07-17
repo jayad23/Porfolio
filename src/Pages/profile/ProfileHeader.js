@@ -1,23 +1,10 @@
-import { useActive } from "@src/hooks/useActive"
-import makeStyles from "@mui/styles/makeStyles"
 import clx from "clsx"
-import styles from "../../assets/styles/profile/profilePicture"
-const useStyles = makeStyles(styles)
 import {  stylesHeader } from "./profile.header.styles"
 import { AlignJustify, FileText, Users, Home } from 'react-feather'
 import { Card, CardImg, Collapse, Navbar, Nav, Button } from 'reactstrap'
-import { useSelector } from "react-redux"
-import { useColorshifter } from "@src/hooks/useColorshifter"
 import { Flag } from "../../@core/components/flagButton/Flag"
-import { useTranslate } from "../../hooks/useTranslate"
 
-const ProfileHeader = ({ gitHubData, imgCover, isOpen, setIsOpen }) => {
-  const { component, handlerActive } = useActive()
-  const { ColorShifter } = useColorshifter()
-  const classes = useStyles()
-  const { values, translate } = useTranslate()
-  const skin = useSelector(state => state.layout.skin)
-  const toggle = () => setIsOpen(!isOpen)
+const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, component, handlerActive, ColorShifter, classes, skin, toggle }) => {
   return (
     <Card className={stylesHeader.container}>
       <CardImg className={classes.cover} src={imgCover} alt='User Profile Image' top/>
@@ -26,7 +13,7 @@ const ProfileHeader = ({ gitHubData, imgCover, isOpen, setIsOpen }) => {
           <div className={clx(stylesHeader.profImgWrapper)}>
             <img className={clx(classes.profile, stylesHeader.profImg)} src={gitHubData?.avatar_url} alt='Card image'/>
             <div className={classes.followersinfo}>
-              <p>{values?.followers}: {(gitHubData?.followers + gitHubData.following + gitHubData?.public_repos)}K</p>
+              <p>{langObj?.followers}: {(gitHubData?.followers + gitHubData.following + gitHubData?.public_repos)}K</p>
             </div>
           </div>
           <div className={stylesHeader.textWrapper}>
@@ -44,15 +31,15 @@ const ProfileHeader = ({ gitHubData, imgCover, isOpen, setIsOpen }) => {
             <div className='profile-tabs d-flex justify-content-between flex-wrap mt-1 mt-md-0'>
               <Nav className='mb-0' pills>
                 <Button color={`${component === "repo" ? "info" : ""}`} onClick = {() => handlerActive("repo")}>
-                  <span className={classes.hidden} style={ColorShifter(skin)}>{values?.repos}: {gitHubData.public_repos}</span>
+                  <span className={classes.hidden} style={ColorShifter(skin)}>{langObj?.repos}: {gitHubData.public_repos}</span>
                   <FileText className='d-block d-md-none' size={14} />
                 </Button>
                 <Button color={`${component === "user" ? "info" : ""}`} onClick = {() => handlerActive("user")}>
-                  <span className={classes.hidden} style={ColorShifter(skin)}>{values?.friends}: {gitHubData.followers}</span>
+                  <span className={classes.hidden} style={ColorShifter(skin)}>{langObj?.friends}: {gitHubData.followers}</span>
                   <Users className='d-block d-md-none' size={14} />
                 </Button>
                 <Button color={`${component === "contribute" ? "info" : ""}`} onClick = {() => handlerActive("contribute")}>
-                  <span className={classes.hidden} style={ColorShifter(skin)}>{values?.contributions}</span>
+                  <span className={classes.hidden} style={ColorShifter(skin)}>{langObj?.contributions}</span>
                   <Users className='d-block d-md-none' size={14} />
                 </Button>
                 <div style={{ marginLeft: "20px"}}>
@@ -72,7 +59,7 @@ const ProfileHeader = ({ gitHubData, imgCover, isOpen, setIsOpen }) => {
               </Nav>
               <Button color="info" onClick = {() => handlerActive("home")}>
                 <Home className='d-block d-md-none' size={14} />
-                <span className='fw-bold d-none d-md-block'>{values?.home}</span>
+                <span className='fw-bold d-none d-md-block'>{langObj?.home}</span>
               </Button>
             </div>
           </Collapse>
