@@ -10,16 +10,9 @@ export const useTranslate = () => {
         friends: "Friends", 
         contributions: "Contributions", 
         home: "Home",
+        profile: "See Profile",
         bio: gitHubData?.bio
     }) 
-    const [values] = useState({ 
-        followers: "Followers", 
-        repos: "Repos", 
-        friends: "Friends", 
-        contributions: "Contributions", 
-        home: "Home",
-        bio: gitHubData?.bio
-    })
     useEffect(() => {
         setSavedData({...savedData, bio: gitHubData?.bio})
     }, [gitHubData])
@@ -34,11 +27,21 @@ export const useTranslate = () => {
                 friends: "Amigos", 
                 contributions: "Contribución", 
                 home:"Inicio",
+                profile: "Ver Perfil",
                 bio:"Soy un Desarrollador Web. Me divierto creando soluciones tecnológicas con React Js. También, soy un dedicato instructor de React; en todo caso, soy un fanático de React"
             }
             dispatch(Translate(ES))
         } else if (selection === "EN") {
-            dispatch(Translate(values))
+            const ES = { 
+                followers: "Followers", 
+                repos: "Repos", 
+                friends: "Friends", 
+                contributions: "Contributions", 
+                home: "Home",
+                profile: "See Profile",
+                bio: gitHubData?.bio
+            }
+            dispatch(Translate(ES))
         }
     }
 

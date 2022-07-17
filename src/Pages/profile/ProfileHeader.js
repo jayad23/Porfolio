@@ -56,6 +56,9 @@ const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, compo
                     selection="ES"
                   />
                 </div>
+                <button style={{ backgroundColor: "transparent", border: "none", color: "white"}}>
+                  <a className={classes.hidden} href="https://github.com/jayad23" target="_blank" rel="nonreferrer" style={{color: `${skin === "dark" ? "white" : "#283046"}`}}>{langObj?.profile}</a>
+                </button>
               </Nav>
               <Button color="info" onClick = {() => handlerActive("home")}>
                 <Home className='d-block d-md-none' size={14} />

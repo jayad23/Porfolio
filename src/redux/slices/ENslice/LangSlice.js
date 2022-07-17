@@ -9,7 +9,8 @@ const LangSlice = createSlice({
         repos: "",
         friends: "",
         contributions: "",
-        bio: ""
+        bio: "",
+        profile: ""
     },
     reducers: {
         getTranslated: (state, action) => {
@@ -17,8 +18,9 @@ const LangSlice = createSlice({
             state.followers = action.payload.followers
             state.repos = action.payload.repos
             state.friends = action.payload.friends
-            state.contributions = action.payload.contribute
-            state.bio = action.payload.bio      
+            state.contributions = action.payload.contributions
+            state.bio = action.payload.bio
+            state.profile = action.payload.profile      
         }
     }
 })
