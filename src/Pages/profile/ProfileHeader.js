@@ -42,10 +42,10 @@ const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, compo
                   <span className={classes.hidden} style={ColorShifter(skin)}>{langObj?.contributions}</span>
                   <Users className='d-block d-md-none' size={14} />
                 </Button>
-                <FlagButton arr={arrOfBtn}/>
                 <button style={{ backgroundColor: "transparent", border: "none", color: "white"}}>
                   <a className={classes.hidden} href="https://github.com/jayad23" target="_blank" rel="nonreferrer" style={{color: `${skin === "dark" ? "white" : "#283046"}`}}>{langObj?.profile}</a>
                 </button>
+                <FlagButton arr={arrOfBtn}/>
               </Nav>
               <Button color="info" onClick = {() => handlerActive("home")}>
                 <Home className='d-block d-md-none' size={14} />
