@@ -53,18 +53,20 @@ const liAnimation = keyframes`
 `
 
 export const UlWrapper = styled.section`
-    border: 2px solid purple;
+    padding-top: 30px;
+    padding-bottom: 10px;
     overflow: hidden;
 `
 
 export const UlTitle = styled.p`
     font-family: 'Fira Mono', monospace;
     font-size: 1.2rem;
+    @media (max-width: 375px) {
+        font-size: 12px;
+    }
 `
 
 export const ListContainer = styled.ul`
-    border: 1px solid yellow;
-    width: 100%;
     display: flex;
     justify-content: space-evenly;
     gap: 50px;
@@ -73,7 +75,8 @@ export const ListContainer = styled.ul`
     text-align: center;
     align-itens: center;
     overflow-y: hidden;
-    margin-left: -110%;
+    margin-left: -1270px;
+    position: absolute;
     animation: ${liAnimation} linear 12s infinite;
 `
 
@@ -106,3 +109,4 @@ export const Name = styled.h1`
     text-shadow: -2px -2px 7px rgba(146, 150, 150, 1);
     color: #D61C4E !important;
 `
+
