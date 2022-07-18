@@ -1,7 +1,7 @@
 import { SiReact, SiJavascript, SiCsswizardry, SiBootstrap, SiRedux, SiStyledcomponents, SiSass, SiMaterialui } from "react-icons/si"
 import { IoLogoNodejs } from "react-icons/io"
 import { TbFileDatabase } from "react-icons/tb"
-export const gitHubApi = "https://api.github.com/users/jayad23"
+export const gitHubApi = "https://api.github.com/users/jorgeduje"
 export const gitHubFollow = "https://github.com/users/follow?target=LorenaParraF"
 export const baseUrl = "http://localhost:3020"
 export const technologies = [

@@ -28,7 +28,7 @@ export const useTranslateGh = () => {
                 contributions: "Contribución", 
                 base:"Inicio",
                 profile: "Ver Perfil",
-                bio:"Soy un Desarrollador Web. Me divierto creando soluciones tecnológicas con React Js. También, soy un dedicato instructor de React; en todo caso, soy un fanático de React"
+                bio:"Hola, soy Jorge Duje, Desarrollador Frontend"
             }
             dispatch(TranslateGitHub(ES))
         } else if (selection === "EN") {

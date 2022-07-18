@@ -23,12 +23,15 @@ import {
 } from "reactstrap"
 
 // ** Default Avatar Image
-import avatar from "@src/assets/images/profile-pic.jpg"
+import { useSelector } from "react-redux"
+
 
 const UserDropdown = () => {
   const [dropDownList, setDropDownList] = useState([])
   const { personalInfo } = usePersonalData()
   const { social } = personalInfo
+  console.log(social)
+  const avatar = useSelector(state => state.gitHubSlice.data)
   useEffect(() => {
     const arrOfElements = [
       {element: Linkedin, name: "LinkedIn"},
@@ -64,7 +67,7 @@ const UserDropdown = () => {
           <span className="user-status">{personalInfo?.job}</span>
         </div>
         <Avatar
-          img={avatar}
+          img={avatar?.avatar_url}
           imgHeight="40"
           imgWidth="40"
           status="online"

@@ -43,7 +43,7 @@ const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, compo
                   <Users className='d-block d-md-none' size={14} />
                 </Button>
                 <button style={{ backgroundColor: "transparent", border: "none", color: "white"}}>
-                  <a className={classes.hidden} href="https://github.com/jayad23" target="_blank" rel="nonreferrer" style={{color: `${skin === "dark" ? "white" : "#283046"}`}}>{langObj?.profile}</a>
+                  <a className={classes.hidden} href="https://github.com/jorgeduje" target="_blank" rel="nonreferrer" style={{color: `${skin === "dark" ? "white" : "#283046"}`}}>{langObj?.profile}</a>
                 </button>
                 <FlagButton arr={arrOfBtn}/>
               </Nav>
