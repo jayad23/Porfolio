@@ -2,9 +2,9 @@ import clx from "clsx"
 import {  stylesHeader } from "./profile.header.styles"
 import { AlignJustify, FileText, Users, Home } from 'react-feather'
 import { Card, CardImg, Collapse, Navbar, Nav, Button } from 'reactstrap'
-import { Flag } from "../../@core/components/flagButton/Flag"
+import { FlagButton } from "../../@core/components/flagButton/FlagButton"
 
-const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, component, handlerActive, ColorShifter, classes, skin, toggle }) => {
+const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, component, handlerActive, ColorShifter, classes, skin, toggle, arrOfBtn}) => {
   return (
     <Card className={stylesHeader.container}>
       <CardImg className={classes.cover} src={imgCover} alt='User Profile Image' top/>
@@ -42,27 +42,14 @@ const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, compo
                   <span className={classes.hidden} style={ColorShifter(skin)}>{langObj?.contributions}</span>
                   <Users className='d-block d-md-none' size={14} />
                 </Button>
-                <div style={{ marginLeft: "20px"}}>
-                  <Flag
-                    onTranslate={translate}
-                    flag="https://flagcdn.com/w20/us.png"
-                    alt="usa_Flag"
-                    selection="EN"
-                  />
-                  <Flag
-                    onTranslate={translate}
-                    flag="https://flagcdn.com/w20/es.png"
-                    alt="esp_Flag"
-                    selection="ES"
-                  />
-                </div>
+                <FlagButton arr={arrOfBtn}/>
                 <button style={{ backgroundColor: "transparent", border: "none", color: "white"}}>
                   <a className={classes.hidden} href="https://github.com/jayad23" target="_blank" rel="nonreferrer" style={{color: `${skin === "dark" ? "white" : "#283046"}`}}>{langObj?.profile}</a>
                 </button>
               </Nav>
               <Button color="info" onClick = {() => handlerActive("home")}>
                 <Home className='d-block d-md-none' size={14} />
-                <span className='fw-bold d-none d-md-block'>{langObj?.home}</span>
+                <span className='fw-bold d-none d-md-block'>{langObj?.base}</span>
               </Button>
             </div>
           </Collapse>

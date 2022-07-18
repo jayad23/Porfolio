@@ -6,13 +6,13 @@ import styles from "@src/assets/styles/profile/profilePicture"
 const useStyles = makeStyles(styles)
 import imgCover from "@src/assets/images/portrait/imgCover.jpeg"
 import { useGetGitHubData } from '../../hooks/useGetGithubData'
-import { useTranslate } from '../../hooks/useTranslate'
+import { useTranslateGh } from '../../hooks/useTranslate'
 import { useSelector } from "react-redux"
 import { useColorshifter } from "@src/hooks/useColorshifter"
 
 const GitHub = () => {
     const { gitHubData } = useGetGitHubData()
-    const { translate } = useTranslate()
+    const { translate } = useTranslateGh()
     const [isOpen, setIsOpen] = useState(false)
     const { component, handlerActive } = useActive()
     const { ColorShifter } = useColorshifter()
@@ -20,11 +20,29 @@ const GitHub = () => {
     const skin = useSelector(state => state.layout.skin)
     const toggle = () => setIsOpen(!isOpen)
     const langObj = useSelector(state => state.LangSlice)
+    
+    const arrOfBtn = [ 
+      {
+        event: translate,
+        flag: "https://flagcdn.com/w20/us.png",
+        alt: "usa_Flag",
+        selection: "EN",
+        bg_light: "#fff",
+        bg_dark: "#283046"
+      }, {
+        event: translate,
+        flag: "https://flagcdn.com/w20/es.png",
+        alt: "esp_Flag",
+        selection: "ES",
+        bg_light: "#fff",
+        bg_dark: "#283046"
+      }
+    ]
     const data = {
         gitHubData,
         imgCover,
         isOpen,
-        translate,
+        arrOfBtn,
         langObj,
         component,
         handlerActive,
