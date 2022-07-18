@@ -3,16 +3,8 @@ import Home from './Home.presentation.js'
 import { useSelector } from 'react-redux'
 import { usePersonalData } from "@src/hooks/usePersonalData"
 import { useTranslateHome } from '../../hooks/useTranslate.js'
-const technologies = [
-  "React",
-  "Redux Tool-kit",
-  "scss",
-  "Styled Components",
-  "Reactsrap",
-  "MUI",
-  "API Management",
-  "Node Js"
-]
+const portfolioAvatar = "http://raw.githubusercontent.com/jayad23/ProfessionalPortfolio/master/src/imgs/self.jpg"
+import { technologies } from '../../assets/global/variables.js'
 const HomeContainer = () => {
   const values = useSelector(state => state.LangSlice)
   const { personalInfo } = usePersonalData()
@@ -38,7 +30,8 @@ const HomeContainer = () => {
     values,
     personalInfo,
     technologies,
-    arrOfBtn
+    arrOfBtn,
+    portfolioAvatar
   }
   return <Home {...childProps}/>
 }
