@@ -54,7 +54,10 @@ export const useTranslateHome = () => {
     const dispatch = useDispatch()
     const [homeValues, setHomeValues] = useState({
         welcome: "Welcome to my portfolio",
-        welcome_info: "This portfolio was build by using these technologies:"
+        welcome_info: "This portfolio was build by using these technologies:",
+        intro:"I am a react developer",
+        born: "Born in Medellin, Col.",
+        selection: "EN"
     })
 
     useEffect(() => {
@@ -65,13 +68,20 @@ export const useTranslateHome = () => {
         if (selection === "ES") {
             const ES = {
                 welcome: "Bienvenidos a mi portafolio",
-                welcome_info: "Este portafolio se construyó usando las siguientes tech:"
+                welcome_info: "Este portafolio se construyó usando las siguientes tech:",
+                intro: "Soy Desarrollador de React",
+                born: "Nací en Medellín, Col",
+                selection: "ES"
+
             }
             dispatch(TranslateHome(ES))
         } else if (selection === "EN") {
             const EN = {
                 welcome: "Welcome to my portfolio",
-                welcome_info: "This portfolio was build by using these technologies:"
+                welcome_info: "This portfolio was build by using these technologies:",
+                intro: "I am a react developer",
+                born: "Born in Medellin, Col.",
+                selection: "EN"
             }
             dispatch(TranslateHome(EN))
         }

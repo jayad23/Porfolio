@@ -1,7 +1,8 @@
 import { FlagButton } from "../../@core/components/flagButton/FlagButton"
+import { CustomSpan } from "../../styled.components/Span/Span"
 import ListItem from "../../styled.components/Li/ListItem"
-import { Container, WelcomeContainer, Welcome, ListContainer, UlWrapper, UlTitle, BodyWrapper, ImageWrapper, Picture, NameWrapper } from "./home.styled"
-const Home = ({ values, technologies, arrOfBtn, portfolioAvatar}) => {
+import { Container, WelcomeContainer, Welcome, ListContainer, UlWrapper, UlTitle, BodyWrapper, ImageWrapper, Picture, NameWrapper, Name} from "./home.styled"
+const Home = ({ values, technologies, arrOfBtn, skin, personalInfo}) => {
   return (
     <Container>
         <WelcomeContainer >
@@ -24,11 +25,14 @@ const Home = ({ values, technologies, arrOfBtn, portfolioAvatar}) => {
         </UlWrapper>
         <BodyWrapper>
           <ImageWrapper>
-            <Picture src={portfolioAvatar} alt="kike_pic" />
+            <Picture src={personalInfo?.portfolioAvatar} alt="kike_pic" />
           </ImageWrapper>
           <NameWrapper>
-            <h1>Kike Vanegas</h1>
-            <p>I am a React Developer</p>
+            <Name>{personalInfo?.nick}</Name>
+            <CustomSpan
+              values={values}
+              skin={skin}
+            />
           </NameWrapper>
         </BodyWrapper>
     </Container>
