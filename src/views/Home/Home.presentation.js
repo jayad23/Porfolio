@@ -1,23 +1,37 @@
 import { FlagButton } from "../../@core/components/flagButton/FlagButton"
-const Home = ({ values, technologies, arrOfBtn }) => {
+import ListItem from "../../styled.components/Li/ListItem"
+import { Container, WelcomeContainer, Welcome, ListContainer, UlWrapper, UlTitle, BodyWrapper, ImageWrapper, Picture, NameWrapper } from "./home.styled"
+const Home = ({ values, technologies, arrOfBtn, portfolioAvatar}) => {
   return (
-    <div>
-        <section style={{ display: "flex", alignItems: "center", padding: "0"}}>
-          <h1 style={{width: "350px"}}>{values?.welcome}</h1>
-          <img src="https://www.logigroup.com/images/modules/react.gif" alt="react_logo" style={{ width: "40px", marginLeft: "5px", paddingBottom: "4px"}} />
+    <Container>
+        <WelcomeContainer >
+          <Welcome>{values?.welcome}</Welcome>
           <FlagButton arr={arrOfBtn}/>
-        </section>
-        <section>
-          <p>{values?.welcome_info}</p>
-          <ul style={{ width: "100%", display: "flex", gap: "20px", textAlign: "center", alignItems: "center"}}>
+        </WelcomeContainer>
+        <UlWrapper>
+          <UlTitle>{values?.welcome_info}</UlTitle>
+          <ListContainer>
             {
               technologies?.map((tech, idx) => (
-                <li key={idx}>{tech}</li>
+                <ListItem 
+                  key={idx}
+                  name={tech.name}
+                  Icon={tech.icon}
+                />
               ))
             }
-          </ul>
-        </section>
-    </div>
+          </ListContainer>
+        </UlWrapper>
+        <BodyWrapper>
+          <ImageWrapper>
+            <Picture src={portfolioAvatar} alt="kike_pic" />
+          </ImageWrapper>
+          <NameWrapper>
+            <h1>Kike Vanegas</h1>
+            <p>I am a React Developer</p>
+          </NameWrapper>
+        </BodyWrapper>
+    </Container>
   )
 }
 
