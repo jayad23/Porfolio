@@ -99,7 +99,10 @@ export const Picture = styled.img`
 export const NameWrapper = styled.section`
     font-family: 'Permanent Marker', cursive;
     border: 1px solid blue;
-    width: 80%
+    width: 80%;
 `
 export const Name = styled.h1`
+    font-size: 8rem;
+    text-shadow: -2px -2px 7px rgba(146, 150, 150, 1);
+    color: #D61C4E !important;
 `
