@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.buttonPaginate{
+    border: #757cc9 1px solid !important;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    color: #757cc9;
+    background: none;
+    cursor: pointer;
+}
+
+.buttonPaginate:focus {
+    background-color: #757cc9;
+    color: rgb(37, 35, 35);
+    font-weight: bolder;
+}
+
+.d-none{
+    display: none;
+}

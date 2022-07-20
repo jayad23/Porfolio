@@ -3,7 +3,7 @@ import { getGitHubUserInfo, getRepos } from "../redux/slices/gitHub/thunks"
 import { useDispatch, useSelector } from "react-redux"
 export const useGetGitHubData = () => {
     const dispatch = useDispatch()
-    const { gitHubData, repos } = useSelector(state => state.gitHubSlice)
+    const gitHubData = useSelector(state => state.gitHubSlice.gitHubData)
 
     useEffect(() => {
         dispatch(getGitHubUserInfo())
@@ -14,7 +14,6 @@ export const useGetGitHubData = () => {
         }
     }, [gitHubData])
     return {
-        gitHubData,
-        repos
+        gitHubData
     }
 }

@@ -9,9 +9,10 @@ import { useGetGitHubData } from '../../hooks/useGetGithubData'
 import { useTranslateGh } from '../../hooks/useTranslate'
 import { useSelector } from "react-redux"
 import { useColorshifter } from "@src/hooks/useColorshifter"
+import { usePaginate } from "../../hooks/usePaginate"
 
 const GitHub = () => {
-    const { gitHubData, repos } = useGetGitHubData()
+    const { gitHubData } = useGetGitHubData()
     const { translate } = useTranslateGh()
     const [isOpen, setIsOpen] = useState(false)
     const { component, handlerActive } = useActive()
@@ -20,6 +21,7 @@ const GitHub = () => {
     const skin = useSelector(state => state.layout.skin)
     const toggle = () => setIsOpen(!isOpen)
     const langObj = useSelector(state => state.LangSlice)
+    const { countBtn, reposShow, setIndex } = usePaginate()
     
     const arrOfBtn = [ 
       {
@@ -50,7 +52,9 @@ const GitHub = () => {
         classes,
         skin,
         toggle,
-        repos
+        countBtn, 
+        reposShow, 
+        setIndex
     }
   return <GitHubPresentation {...data}/>
 }

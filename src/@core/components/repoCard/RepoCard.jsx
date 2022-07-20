@@ -23,9 +23,9 @@ const ExpandMore = styled((props) => {
   })
 }))
 
-export default function RepoCard() {
+export default function RepoCard({ repo }) {
   const [expanded, setExpanded] = React.useState(false)
-
+  //console.log(repo)
   const handleExpandClick = () => {
     setExpanded(!expanded)
   }
@@ -38,8 +38,8 @@ export default function RepoCard() {
             Kz
           </Avatar>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={repo?.repo_name}
+        subheader={repo?.created_at}
       />
       <CardMedia
         component="img"
@@ -47,15 +47,15 @@ export default function RepoCard() {
         image="https://i.stack.imgur.com/BqONr.gif"
         alt="Git_hub_repo"
       />
-      <CardContent>
+      <CardContent >
         <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
           mussels, if you like.
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <a href={repoExample} target="_blank" rel="noreferrer">
+      <CardActions>
+        <a href={repo?.repo_url} target="_blank" rel="noreferrer">
           See Repo on GitHub
         </a>
         <ExpandMore

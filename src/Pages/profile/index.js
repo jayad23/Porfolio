@@ -9,6 +9,7 @@ import { Row, Col} from 'reactstrap'
 // ** Demo Components
 import ProfileHeader from './ProfileHeader'
 import RepoCard from '../../@core/components/repoCard/RepoCard'
+import Paginate from '../../@core/components/Pagination/Pagination'
 
 
 // ** Styles
@@ -16,7 +17,7 @@ import '@styles/react/pages/page-profile.scss'
 
 const Profile = (props) => {
   const component = useSelector(state => state.componentSlice.component)
-  const { langObj, repos } = props
+  const { langObj, countBtn, reposShow, setIndex, skin } = props
   return (
     <Fragment>
       <div id='user-profile'>
@@ -30,9 +31,14 @@ const Profile = (props) => {
             component === "user" ? <Row>
                 <h1>{component}</h1>
               </Row> : component === "repo" ? (<Row className='d-flex justify-content-center align-items-center mb-1'>
+                  <Paginate 
+                    countBtn={countBtn} 
+                    setIndex={setIndex}
+                    skin={skin}
+                  />
                   {
-                    repos && repos.map(repo => (
-                      <Col key={repo.id} sm="12" md="6" lg="4" xl="3" className='mb-1'>
+                    reposShow && reposShow.map((repo) => (
+                      <Col key={repo.id} sm="12" md="6" lg="4" xl="3" className='mb-1 d-flex justify-content-center'>
                         <RepoCard repo={repo}/>
                       </Col>
                     ))
