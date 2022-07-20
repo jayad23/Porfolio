@@ -16,7 +16,7 @@ const HomeContainer = () => {
       flag: "https://flagcdn.com/w20/us.png",
       alt: "usa_Flag",
       selection: "EN",
-      bg_light: "#f6f6f6",
+      bg_light: "#white",
       bg_dark: "#161D31"
     }, {
       event: translateHome,
@@ -31,7 +31,6 @@ const HomeContainer = () => {
     values,
     personalInfo,
     technologies,
-    arrOfBtn,
     skin
   }
   return <Home {...childProps}/>
