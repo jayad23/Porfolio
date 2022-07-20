@@ -25,6 +25,7 @@ export const Container = styled.div`
     display: flex;
     min-height: 100vh;
     height: 100%;
+    overflow: hidden;
     background-color: #060707;
     background-image: linear-gradient(to bottom right, rgba(82, 79, 79, 0.795), rgb(0, 0, 0));
     @media screen and (max-width: 650px){
@@ -89,7 +90,6 @@ export const Homejob = styled.h4`
 `
 
 export const WelcomeContainer = styled.section`
-    border: 1px solid white;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -125,28 +125,20 @@ export const Welcome = styled.h1`
             ${blinkAnimation} 1.3s infinite 2s
         ; 
     }
+    @media screen and (max-width: 425px){
+        letter-spacing: .05em;
+        animation: 
+            ${adaptAnimation(220)} 2s steps(25),
+            ${blinkAnimation} 1.3s infinite 2s
+        ; 
+    }
 `
-
 const liAnimation = keyframes`
     0%{
-        margin-left: -110%;
+        transform: translateX(-100%);
     }
     100%{
-        margin-left: 110%;
-    }
-`
-
-export const UlWrapper = styled.section`
-    padding-top: 30px;
-    padding-bottom: 10px;
-    overflow: hidden;
-`
-
-export const UlTitle = styled.p`
-    font-family: 'Fira Mono', monospace;
-    font-size: 1.2rem;
-    @media (max-width: 375px) {
-        font-size: 12px;
+        transform: translateX(140%);
     }
 `
 
@@ -159,9 +151,9 @@ export const ListContainer = styled.ul`
     text-align: center;
     align-itens: center;
     overflow-y: hidden;
-    margin-left: -1270px;
     position: absolute;
-    animation: ${liAnimation} linear 12s infinite;
+    top: 15%;
+    animation: ${liAnimation} linear 22s infinite;
 `
 
 export const BodyWrapper = styled.div`

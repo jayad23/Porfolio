@@ -1,11 +1,21 @@
 import { FlagButton } from "../../@core/components/flagButton/FlagButton"
 import { CustomSpan } from "../../styled.components/Span/Span"
 import ListItem from "../../styled.components/Li/ListItem"
-import styles from "./home.module.css"
 import { Container, HomeImageContainer, HomeTextContainer, Image, Homename, Homejob, WelcomeContainer, Welcome, ListContainer, UlWrapper, UlTitle, BodyWrapper, ImageWrapper, Picture, NameWrapper, Name} from "./home.styled"
 const Home = ({ values, technologies, arrOfBtn, skin, personalInfo}) => {
   return (
-    <Container>
+    <Container skin={skin}>     
+        <ListContainer>
+          {
+            technologies?.map((tech, idx) => (
+              <ListItem 
+                key={idx}
+                name={tech.name}
+                Icon={tech.icon}
+              />
+            ))
+          }
+        </ListContainer>
       <HomeImageContainer>
         <Image src={personalInfo?.portfolioAvatar} alt={personalInfo?.name} />
       </HomeImageContainer>
@@ -15,15 +25,15 @@ const Home = ({ values, technologies, arrOfBtn, skin, personalInfo}) => {
             <Welcome>{personalInfo?.job}</Welcome>
           </WelcomeContainer>
       </HomeTextContainer>
-      <FlagButton arr={arrOfBtn}/>
     </Container>
     // <Container>
     //     <WelcomeContainer >
     //       <Welcome>{values?.welcome}</Welcome>
     //       <FlagButton arr={arrOfBtn}/>
     //     </WelcomeContainer>
+    //.    <UlTitle>{values?.welcome_info}</UlTitle>
     //     <UlWrapper>
-    //       <UlTitle>{values?.welcome_info}</UlTitle>
+    //       
     //       <ListContainer>
     //         {
     //           technologies?.map((tech, idx) => (
