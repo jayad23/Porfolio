@@ -5,7 +5,8 @@ import { Fragment } from "react"
 import NavbarUser from "./NavbarUser"
 
 // ** Third Party Components
-import { Sun, Moon, Menu } from "react-feather"
+import { Sun, Menu } from "react-feather"
+import { GiMoon } from "react-icons/gi"
 
 // ** Reactstrap Imports
 import { NavItem, NavLink } from "reactstrap"
@@ -19,7 +20,7 @@ const ThemeNavbar = (props) => {
     if (skin === "dark") {
       return <Sun className="ficon" onClick={() => setSkin("light")} />
     } else {
-      return <Moon className="ficon" onClick={() => setSkin("dark")} />
+      return <GiMoon size={22} className="ficon" onClick={() => setSkin("dark")} />
     }
   }
 
@@ -36,11 +37,7 @@ const ThemeNavbar = (props) => {
             </NavLink>
           </NavItem>
         </ul>
-        <NavItem className="d-none d-lg-block">
-          <NavLink className="nav-link-style">
-            <ThemeToggler />
-          </NavLink>
-        </NavItem>
+        <ThemeToggler />
       </div>
       <NavbarUser skin={skin} setSkin={setSkin} />
     </Fragment>
