@@ -4,14 +4,14 @@ import { useActive } from "@src/hooks/useActive"
 import makeStyles from "@mui/styles/makeStyles"
 import styles from "@src/assets/styles/profile/profilePicture"
 const useStyles = makeStyles(styles)
-import imgCover from "@src/assets/images/portrait/imgCover.jpeg"
+import imgCover from "@src/assets/images/portrait/imgCover.jpg"
 import { useGetGitHubData } from '../../hooks/useGetGithubData'
 import { useTranslateGh } from '../../hooks/useTranslate'
 import { useSelector } from "react-redux"
 import { useColorshifter } from "@src/hooks/useColorshifter"
 
 const GitHub = () => {
-    const { gitHubData } = useGetGitHubData()
+    const { gitHubData, repos } = useGetGitHubData()
     const { translate } = useTranslateGh()
     const [isOpen, setIsOpen] = useState(false)
     const { component, handlerActive } = useActive()
@@ -49,7 +49,8 @@ const GitHub = () => {
         ColorShifter,
         classes,
         skin,
-        toggle
+        toggle,
+        repos
     }
   return <GitHubPresentation {...data}/>
 }

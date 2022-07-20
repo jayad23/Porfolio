@@ -4,9 +4,9 @@ import { AlignJustify, FileText, Users, Home } from 'react-feather'
 import { Card, CardImg, Collapse, Navbar, Nav, Button } from 'reactstrap'
 import { FlagButton } from "../../@core/components/flagButton/FlagButton"
 
-const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, component, handlerActive, ColorShifter, classes, skin, toggle, arrOfBtn}) => {
+const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, component, handlerActive, ColorShifter, classes, skin, toggle, arrOfBtn}) => {
   return (
-    <Card className={stylesHeader.container}>
+    <Card className={stylesHeader.container} style={{ overflow: "hidden"}}>
       <CardImg className={classes.cover} src={imgCover} alt='User Profile Image' top/>
       <div className={stylesHeader.cover}>
         <div className={clx(stylesHeader.proImgContainer, classes.picContainer)}>
@@ -43,7 +43,7 @@ const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, translate, compo
                   <Users className='d-block d-md-none' size={14} />
                 </Button>
                 <button style={{ backgroundColor: "transparent", border: "none", color: "white"}}>
-                  <a className={classes.hidden} href="https://github.com/jayad23" target="_blank" rel="nonreferrer" style={{color: `${skin === "dark" ? "white" : "#283046"}`}}>{langObj?.profile}</a>
+                  <a className={classes.hidden} href={gitHubData?.html_url} target="_blank" rel="nonreferrer" style={{color: `${skin === "dark" ? "white" : "#283046"}`}}>{langObj?.profile}</a>
                 </button>
                 <FlagButton arr={arrOfBtn}/>
               </Nav>
