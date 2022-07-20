@@ -13,7 +13,7 @@ const ListItem = ({ name, Icon}) => {
   return (
     <Li>
         <Icon />
-        <li style={{ fontSize: "10px"}}>{name}</li>
+        <span style={{ fontSize: "10px"}}>{name}</span>
     </Li>
   )
 }

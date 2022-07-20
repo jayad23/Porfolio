@@ -1,8 +1,8 @@
-import { FlagButton } from "../../@core/components/flagButton/FlagButton"
 import { CustomSpan } from "../../styled.components/Span/Span"
 import ListItem from "../../styled.components/Li/ListItem"
-import { Container, HomeImageContainer, HomeTextContainer, Image, Homename, Homejob, WelcomeContainer, Welcome, ListContainer, UlWrapper, UlTitle, BodyWrapper, ImageWrapper, Picture, NameWrapper, Name} from "./home.styled"
-const Home = ({ values, technologies, arrOfBtn, skin, personalInfo}) => {
+import { Container, HomeImageContainer, HomeTextContainer, Image, Homename, WelcomeContainer, Welcome, ListContainer } from "./home.styled"
+const Home = ({ values, technologies, skin, personalInfo}) => {
+  console.log(values)
   return (
     <Container skin={skin}>     
         <ListContainer>
@@ -26,39 +26,6 @@ const Home = ({ values, technologies, arrOfBtn, skin, personalInfo}) => {
           </WelcomeContainer>
       </HomeTextContainer>
     </Container>
-    // <Container>
-    //     <WelcomeContainer >
-    //       <Welcome>{values?.welcome}</Welcome>
-    //       <FlagButton arr={arrOfBtn}/>
-    //     </WelcomeContainer>
-    //.    <UlTitle>{values?.welcome_info}</UlTitle>
-    //     <UlWrapper>
-    //       
-    //       <ListContainer>
-    //         {
-    //           technologies?.map((tech, idx) => (
-    //             <ListItem 
-    //               key={idx}
-    //               name={tech.name}
-    //               Icon={tech.icon}
-    //             />
-    //           ))
-    //         }
-    //       </ListContainer>
-    //     </UlWrapper>
-    //     <BodyWrapper>
-    //       <ImageWrapper>
-    //         <Picture src={personalInfo?.portfolioAvatar} alt="kike_pic" />
-    //       </ImageWrapper>
-    //       <NameWrapper>
-    //         <Name>{personalInfo?.nick}</Name>
-    //         <CustomSpan
-    //           values={values}
-    //           skin={skin}
-    //         />
-    //       </NameWrapper>
-    //     </BodyWrapper>
-    // </Container>
   )
 }
 
