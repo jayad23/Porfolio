@@ -4,7 +4,7 @@ import { useActive } from "@src/hooks/useActive"
 import makeStyles from "@mui/styles/makeStyles"
 import styles from "@src/assets/styles/profile/profilePicture"
 const useStyles = makeStyles(styles)
-import imgCover from "@src/assets/images/portrait/imgCover.jpg"
+import imgCover from "@src/assets/images/portrait/imgCover.jpeg"
 import { useGetGitHubData } from '../../hooks/useGetGithubData'
 import { useTranslateGh } from '../../hooks/useTranslate'
 import { useSelector } from "react-redux"

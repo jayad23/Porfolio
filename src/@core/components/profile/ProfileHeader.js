@@ -2,7 +2,7 @@ import clx from "clsx"
 import {  stylesHeader } from "./profile.header.styles"
 import { AlignJustify, FileText, Users, Home } from 'react-feather'
 import { Card, CardImg, Collapse, Navbar, Nav, Button } from 'reactstrap'
-import { FlagButton } from "../../@core/components/flagButton/FlagButton"
+import { FlagButton } from "../flagButton/FlagButton"
 
 const ProfileHeader = ({ gitHubData, imgCover, isOpen, langObj, component, handlerActive, ColorShifter, classes, skin, toggle, arrOfBtn}) => {
   return (
