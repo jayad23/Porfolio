@@ -3,10 +3,11 @@ import Home from './Home.presentation.js'
 import { useSelector } from 'react-redux'
 import { usePersonalData } from "@src/hooks/usePersonalData"
 import { useTranslateHome } from '../../hooks/useTranslate.js'
-const portfolioAvatar = "http://raw.githubusercontent.com/jayad23/ProfessionalPortfolio/master/src/imgs/self.jpg"
 import { technologies } from '../../assets/global/variables.js'
+
 const HomeContainer = () => {
   const values = useSelector(state => state.LangSlice)
+  const skin = useSelector(state => state.layout.skin)
   const { personalInfo } = usePersonalData()
   const { translateHome } = useTranslateHome()
   const arrOfBtn = [ 
@@ -15,7 +16,7 @@ const HomeContainer = () => {
       flag: "https://flagcdn.com/w20/us.png",
       alt: "usa_Flag",
       selection: "EN",
-      bg_light: "#f6f6f6",
+      bg_light: "#white",
       bg_dark: "#161D31"
     }, {
       event: translateHome,
@@ -30,8 +31,7 @@ const HomeContainer = () => {
     values,
     personalInfo,
     technologies,
-    arrOfBtn,
-    portfolioAvatar
+    skin
   }
   return <Home {...childProps}/>
 }

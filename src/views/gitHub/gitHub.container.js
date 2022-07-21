@@ -4,11 +4,12 @@ import { useActive } from "@src/hooks/useActive"
 import makeStyles from "@mui/styles/makeStyles"
 import styles from "@src/assets/styles/profile/profilePicture"
 const useStyles = makeStyles(styles)
-import imgCover from "@src/assets/images/portrait/imgCover.jpeg"
+import imgCover from "@src/assets/images/portrait/imgCover.jpg"
 import { useGetGitHubData } from '../../hooks/useGetGithubData'
 import { useTranslateGh } from '../../hooks/useTranslate'
 import { useSelector } from "react-redux"
 import { useColorshifter } from "@src/hooks/useColorshifter"
+import { usePaginate } from "../../hooks/usePaginate"
 
 const GitHub = () => {
     const { gitHubData } = useGetGitHubData()
@@ -20,6 +21,7 @@ const GitHub = () => {
     const skin = useSelector(state => state.layout.skin)
     const toggle = () => setIsOpen(!isOpen)
     const langObj = useSelector(state => state.LangSlice)
+    const { countBtn, reposShow, setIndex, index} = usePaginate()
     
     const arrOfBtn = [ 
       {
@@ -49,7 +51,11 @@ const GitHub = () => {
         ColorShifter,
         classes,
         skin,
-        toggle
+        toggle,
+        countBtn, 
+        reposShow, 
+        setIndex,
+        index
     }
   return <GitHubPresentation {...data}/>
 }

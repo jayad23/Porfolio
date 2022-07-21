@@ -12,7 +12,9 @@ const LangSlice = createSlice({
         bio: "",
         profile: "",
         welcome: "",
-        welcome_info: ""
+        welcome_info: "",
+        born: "",
+        selection: ""
     },
     reducers: {
         getGitHubTranslated: (state, action) => {
@@ -27,6 +29,8 @@ const LangSlice = createSlice({
         getHomeTranslated: (state, action) => {
             state.welcome = action.payload.welcome
             state.welcome_info = action.payload.welcome_info
+            state.born = action.payload.born
+            state.selection = action.payload.selection
         }
     }
 })

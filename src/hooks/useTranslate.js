@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { TranslateGitHub, TranslateHome } from "../redux/slices/ENslice/thunks"
 export const useTranslateGh = () => {
-    const gitHubData = useSelector(state => state.gitHubSlice.data)
+    const gitHubData = useSelector(state => state.gitHubSlice.gitHubData)
     const dispatch = useDispatch()
     const [savedData, setSavedData] = useState({ 
         followers: "Followers", 
@@ -54,7 +54,10 @@ export const useTranslateHome = () => {
     const dispatch = useDispatch()
     const [homeValues, setHomeValues] = useState({
         welcome: "Welcome to my portfolio",
-        welcome_info: "This portfolio was build by using these technologies:"
+        welcome_info: "This portfolio includes:",
+        intro:"I am a react developer",
+        born: "Born in Medellin, Col.",
+        selection: "EN"
     })
 
     useEffect(() => {
@@ -65,13 +68,20 @@ export const useTranslateHome = () => {
         if (selection === "ES") {
             const ES = {
                 welcome: "Bienvenidos a mi portafolio",
-                welcome_info: "Este portafolio se construyó usando las siguientes tech:"
+                welcome_info: "Este portafolio incluye:",
+                intro: "Soy Desarrollador de React",
+                born: "Nací en Medellín, Col",
+                selection: "ES"
+
             }
             dispatch(TranslateHome(ES))
         } else if (selection === "EN") {
             const EN = {
                 welcome: "Welcome to my portfolio",
-                welcome_info: "This portfolio was build by using these technologies:"
+                welcome_info: "This portfolio includes:",
+                intro: "I am a react developer",
+                born: "Born in Medellin, Col.",
+                selection: "EN"
             }
             dispatch(TranslateHome(EN))
         }

@@ -1,36 +1,30 @@
-import { FlagButton } from "../../@core/components/flagButton/FlagButton"
+import { CustomSpan } from "../../styled.components/Span/Span"
 import ListItem from "../../styled.components/Li/ListItem"
-import { Container, WelcomeContainer, Welcome, ListContainer, UlWrapper, UlTitle, BodyWrapper, ImageWrapper, Picture, NameWrapper } from "./home.styled"
-const Home = ({ values, technologies, arrOfBtn, portfolioAvatar}) => {
+import { Container, HomeImageContainer, HomeTextContainer, Image, Homename, WelcomeContainer, Welcome, ListContainer } from "./home.styled"
+const Home = ({ values, technologies, skin, personalInfo}) => {
+  console.log(values)
   return (
-    <Container>
-        <WelcomeContainer >
-          <Welcome>{values?.welcome}</Welcome>
-          <FlagButton arr={arrOfBtn}/>
-        </WelcomeContainer>
-        <UlWrapper>
-          <UlTitle>{values?.welcome_info}</UlTitle>
-          <ListContainer>
-            {
-              technologies?.map((tech, idx) => (
-                <ListItem 
-                  key={idx}
-                  name={tech.name}
-                  Icon={tech.icon}
-                />
-              ))
-            }
-          </ListContainer>
-        </UlWrapper>
-        <BodyWrapper>
-          <ImageWrapper>
-            <Picture src={portfolioAvatar} alt="kike_pic" />
-          </ImageWrapper>
-          <NameWrapper>
-            <h1>Kike Vanegas</h1>
-            <p>I am a React Developer</p>
-          </NameWrapper>
-        </BodyWrapper>
+    <Container skin={skin}>     
+        <ListContainer>
+          {
+            technologies?.map((tech, idx) => (
+              <ListItem 
+                key={idx}
+                name={tech.name}
+                Icon={tech.icon}
+              />
+            ))
+          }
+        </ListContainer>
+      <HomeImageContainer>
+        <Image src={personalInfo?.portfolioAvatar} alt={personalInfo?.name} />
+      </HomeImageContainer>
+      <HomeTextContainer>
+          <Homename>{personalInfo?.nick}</Homename>
+          <WelcomeContainer>
+            <Welcome>{personalInfo?.job}</Welcome>
+          </WelcomeContainer>
+      </HomeTextContainer>
     </Container>
   )
 }

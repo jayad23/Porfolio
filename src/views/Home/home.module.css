@@ -1,0 +1,88 @@
+
+.containerHome {
+    display: flex;
+    min-height: 100vh;
+    height: 100%;
+    background-color: #060707;
+    background-image: linear-gradient(to bottom right, rgba(82, 79, 79, 0.795), rgb(0, 0, 0));
+}
+
+.homeImage{
+    width: 40%;
+    overflow: hidden;
+}
+
+.homeImage > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1000;
+}
+
+.homeText {
+   
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3rem;
+}
+
+.homeText > h3{
+    color: #B91646;
+    cursor:pointer; 
+    margin: 0;
+    font-size: 5rem;
+}
+
+.homeText>h4{
+    color: #68e642;
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 650px) {
+
+    .homeText{
+        width: 100%;
+    }
+
+    .homeText > p{
+        height: 20vh;
+    }
+
+    .containerHome{
+        background-image: linear-gradient(to bottom right, rgba(82, 79, 79, 0.678), rgba(0, 0, 0, 0.637)), url("https://kike-vanegas-dev.vercel.app/static/media/self.be9a4dc0.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .homeImage{
+        display: none;
+    }
+
+    .containerHome{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .homeText {
+        background-image: none;
+    }
+}
+
+@media screen and (max-width: 471px){
+    .homeText > h4{
+        margin-top: 10%;
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .homeText > h4{
+        font-size: 1.5rem;  
+    }
+}

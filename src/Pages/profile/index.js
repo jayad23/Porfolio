@@ -2,27 +2,22 @@ import { Fragment } from 'react'
 import { useSelector } from 'react-redux'
 // ** Custom Components
 import UILoader from '@components/ui-loader'
-import Breadcrumbs from '@components/breadcrumbs'
 
 // ** Reactstrap Imports
-import { Row, Col, Button } from 'reactstrap'
+import { Row, Col} from 'reactstrap'
 
 // ** Demo Components
-import ProfilePoll from './ProfilePolls'
-import ProfileAbout from './ProfileAbout'
-import ProfilePosts from './ProfilePosts'
 import ProfileHeader from './ProfileHeader'
-import ProfileTwitterFeeds from './ProfileTwitterFeeds'
-import ProfileLatestPhotos from './ProfileLatestPhotos'
-import ProfileSuggestedPages from './ProfileSuggestedPages'
-import ProfileFriendsSuggestions from './ProfileFriendsSuggestions'
+import RepoCard from '../../@core/components/repoCard/RepoCard'
+import Paginate from '../../@core/components/Pagination/Pagination'
+
 
 // ** Styles
 import '@styles/react/pages/page-profile.scss'
 
 const Profile = (props) => {
   const component = useSelector(state => state.componentSlice.component)
-  const { langObj } = props
+  const { langObj, countBtn, reposShow, setIndex, skin, index } = props
   return (
     <Fragment>
       <div id='user-profile'>
@@ -34,46 +29,27 @@ const Profile = (props) => {
           {
             component &&
             component === "user" ? <Row>
-                <h1>{component}</h1>
-              </Row> : component === "repo" ? <Row>
-                <h1>{component}</h1>
-              </Row> : component === "contribute" ? <Row>
+                <h1>{langObj?.bio}</h1>
+              </Row> : component === "repo" ? (<Row className='d-flex justify-content-center align-items-center mb-1'>
+                  <Paginate 
+                    countBtn={countBtn} 
+                    setIndex={setIndex}
+                    skin={skin}
+                    index={index}
+                  />
+                  {
+                    reposShow && reposShow.map((repo) => (
+                      <Col key={repo.id} sm="12" md="6" lg="4" xl="3" className='mb-1 d-flex justify-content-center'>
+                        <RepoCard repo={repo}/>
+                      </Col>
+                    ))
+                  }  
+              </Row>) : component === "contribute" ? <Row>
                 <h1>{component}</h1>
               </Row> : <Row>
                 <p>{langObj?.bio}</p>
               </Row> 
           }
-      
-          {/* <Breadcrumbs title='Profile' data={[{ title: 'Profile' }]} /> */}
-          {/* {data !== null ? ( */}
-            
-          {/* <section id='profile-info'>
-            this section requires a state called data, and block
-            <Row>
-              <Col lg={{ size: 3, order: 1 }} sm={{ size: 12 }} xs={{ order: 2 }}>
-                <ProfileAbout data={data.userAbout} />
-                <ProfileSuggestedPages data={data.suggestedPages} />
-                <ProfileTwitterFeeds data={data.twitterFeeds} />
-              </Col>
-              <Col lg={{ size: 6, order: 2 }} sm={{ size: 12 }} xs={{ order: 1 }}>
-                <ProfilePosts data={data.post} />
-              </Col>
-              <Col lg={{ size: 3, order: 3 }} sm={{ size: 12 }} xs={{ order: 3 }}>
-                <ProfileLatestPhotos data={data.latestPhotos} />
-                <ProfileFriendsSuggestions data={data.suggestions} />
-                <ProfilePoll data={data.polls} />
-              </Col>
-            </Row>
-            <Row>
-              <Col className='text-center' sm='12'>
-                <Button color='primary' className='border-0 mb-1 profile-load-more' size='sm' onClick={handleBlock}>
-                  <UILoader blocking={block} overlayColor='rgba(255,255,255, .5)'>
-                    <span> Load More</span>
-                  </UILoader>
-                </Button>
-              </Col>
-            </Row>
-          </section> */}
         </div>
     </Fragment>
   )

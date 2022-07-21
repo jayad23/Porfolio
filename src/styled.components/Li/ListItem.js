@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components"
-
 const Li = styled.li`
     display: flex;
     flex-direction: column;
@@ -14,7 +13,7 @@ const ListItem = ({ name, Icon}) => {
   return (
     <Li>
         <Icon />
-        <li style={{ fontSize: "10px"}}>{name}</li>
+        <span style={{ fontSize: "10px"}}>{name}</span>
     </Li>
   )
 }
