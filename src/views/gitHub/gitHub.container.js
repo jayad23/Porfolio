@@ -21,7 +21,7 @@ const GitHub = () => {
     const skin = useSelector(state => state.layout.skin)
     const toggle = () => setIsOpen(!isOpen)
     const langObj = useSelector(state => state.LangSlice)
-    const { countBtn, reposShow, setIndex } = usePaginate()
+    const { countBtn, reposShow, setIndex, index} = usePaginate()
     
     const arrOfBtn = [ 
       {
@@ -54,7 +54,8 @@ const GitHub = () => {
         toggle,
         countBtn, 
         reposShow, 
-        setIndex
+        setIndex,
+        index
     }
   return <GitHubPresentation {...data}/>
 }

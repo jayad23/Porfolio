@@ -6,6 +6,9 @@
     align-content: center;
     gap: 10px;
     padding-bottom: 20px;
+    @media (max-width: 480px) {
+        gap: 7px;
+    }
 }
 
 .buttonPaginate{
@@ -16,17 +19,30 @@
     color: #00cfe8;
     background: none;
     cursor: pointer;
-    &:focus {
-        background-color: #00cfe8;
-        color: #eee;
-        font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    @media (max-width: 480px) {
+        width: 26px;
+        height: 26px;
+
     }
 }
 
 .focused{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
     background-color: #00cfe8;
     color: #eee;
-    font-weight: bolder;
+    @media (max-width: 480px) {
+        width: 26px;
+        height: 26px;
+    }
 }
 
 .d-none{

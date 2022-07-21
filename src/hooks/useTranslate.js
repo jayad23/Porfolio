@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { TranslateGitHub, TranslateHome } from "../redux/slices/ENslice/thunks"
 export const useTranslateGh = () => {
-    const gitHubData = useSelector(state => state.gitHubSlice.data)
+    const gitHubData = useSelector(state => state.gitHubSlice.gitHubData)
     const dispatch = useDispatch()
     const [savedData, setSavedData] = useState({ 
         followers: "Followers", 

@@ -17,7 +17,7 @@ import '@styles/react/pages/page-profile.scss'
 
 const Profile = (props) => {
   const component = useSelector(state => state.componentSlice.component)
-  const { langObj, countBtn, reposShow, setIndex, skin } = props
+  const { langObj, countBtn, reposShow, setIndex, skin, index } = props
   return (
     <Fragment>
       <div id='user-profile'>
@@ -29,12 +29,13 @@ const Profile = (props) => {
           {
             component &&
             component === "user" ? <Row>
-                <h1>{component}</h1>
+                <h1>{langObj?.bio}</h1>
               </Row> : component === "repo" ? (<Row className='d-flex justify-content-center align-items-center mb-1'>
                   <Paginate 
                     countBtn={countBtn} 
                     setIndex={setIndex}
                     skin={skin}
+                    index={index}
                   />
                   {
                     reposShow && reposShow.map((repo) => (

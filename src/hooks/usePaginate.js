@@ -22,6 +22,7 @@ export const usePaginate = () => {
     return {
         countBtn,
         reposShow,
-        setIndex
+        setIndex,
+        index
     }
 }
