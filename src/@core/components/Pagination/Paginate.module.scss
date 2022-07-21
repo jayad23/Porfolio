@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.buttonPaginate{
+    border: #00cfe8 1px solid !important;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    color: #00cfe8;
+    background: none;
+    cursor: pointer;
+    &:focus {
+        background-color: #00cfe8;
+        color: #eee;
+        font-weight: bolder;
+    }
+}
+
+.focused{
+    background-color: #00cfe8;
+    color: #eee;
+    font-weight: bolder;
+}
+
+.d-none{
+    display: none;
+}
+
+.chevron {
+    color: #00cfe8;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.2);
+    }
+}

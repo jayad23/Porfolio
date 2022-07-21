@@ -9,7 +9,7 @@ import Collapse from "@mui/material/Collapse"
 import Avatar from "@mui/material/Avatar"
 import IconButton from "@mui/material/IconButton"
 import Typography from "@mui/material/Typography"
-import { pink } from "@mui/material/colors"
+import { blue } from "@mui/material/colors"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 const repoExample = "https://github.com/jayad23/AppWeather"
 const ExpandMore = styled((props) => {
@@ -34,7 +34,7 @@ export default function RepoCard({ repo }) {
     <Card sx={{ maxWidth: 300 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: pink[600]}} aria-label="recipe">
+          <Avatar sx={{ bgcolor: "#00cfe8"}} aria-label="recipe">
             Kz
           </Avatar>
         }
@@ -55,7 +55,7 @@ export default function RepoCard({ repo }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <a href={repo?.repo_url} target="_blank" rel="noreferrer">
+        <a style={{ color: "#00cfe8"}} href={repo?.repo_url} target="_blank" rel="noreferrer">
           See Repo on GitHub
         </a>
         <ExpandMore

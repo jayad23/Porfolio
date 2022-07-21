@@ -19,7 +19,7 @@ const gitHubSlice = createSlice({
         },
         getGitHubRepos: (state, action) => {
             state.status = "success"
-            state.repos = action.payload.map(repo => ({ id: repo?.id, repo_name: repo?.name,  repo_url: repo?.html_url, created_at: repo?.created_at, deployed: repo?.homepage}))
+            state.repos = action.payload.map(repo => ({id: repo?.id, repo_name: repo?.name,  repo_url: repo?.html_url, created_at: repo?.created_at, deployed: repo?.homepage}))
         }
     }
 })
